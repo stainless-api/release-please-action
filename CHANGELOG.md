@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.8.0](https://github.com/stainless-api/release-please-action/compare/v3.7.6...v3.8.0) (2023-04-11)
+
+
+### Features
+
+* **github:** add support for specifying a github-use-graphql option ([#1](https://github.com/stainless-api/release-please-action/issues/1)) ([6e6914f](https://github.com/stainless-api/release-please-action/commit/6e6914fa794c316d7881dfd4c5f15d0edea41c36))
+
+
+### Bug Fixes
+
+* proper setup for github-use-graphql ([#8](https://github.com/stainless-api/release-please-action/issues/8)) ([f925d59](https://github.com/stainless-api/release-please-action/commit/f925d591035aa0e92c98917eaf6469da3afe2e49))
+
 ## [3.7.6](https://github.com/google-github-actions/release-please-action/compare/v3.7.5...v3.7.6) (2023-03-28)
 
 
