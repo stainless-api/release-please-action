@@ -123,7 +123,7 @@ function getGitHubInstance () {
     apiUrl,
     graphqlUrl,
     token,
-    useGraphql,
+    useGraphql
   }
   if (defaultBranch) githubCreateOpts.defaultBranch = defaultBranch
   return GitHub.create(githubCreateOpts)
