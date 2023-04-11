@@ -19,14 +19,15 @@ function getGitHubInput () {
     repoUrl: core.getInput('repo-url') || process.env.GITHUB_REPOSITORY,
     apiUrl: core.getInput('github-api-url') || GITHUB_API_URL,
     graphqlUrl: (core.getInput('github-graphql-url') || '').replace(/\/graphql$/, '') || GITHUB_GRAPHQL_URL,
-    useGraphql: getOptionalBooleanInput('use-graphql'),
+    useGraphql: getOptionalBooleanInput('github-use-graphql'),
     token: core.getInput('token', { required: true }),
     proxyServer: core.getInput('proxy-server') || undefined
   }
 }
 
 function getOptionalBooleanInput (name) {
-  if (core.getInput(name) === '') {
+  const input = core.getInput(name)
+  if (input === '' || input === undefined) {
     return undefined
   }
   return core.getBooleanInput(name)
@@ -107,7 +108,7 @@ const releasePlease = {
 }
 
 function getGitHubInstance () {
-  const { token, defaultBranch, apiUrl, graphqlUrl, repoUrl, proxyServer } = getGitHubInput()
+  const { token, defaultBranch, apiUrl, graphqlUrl, repoUrl, proxyServer, useGraphql } = getGitHubInput()
   const [owner, repo] = repoUrl.split('/')
 
   let proxy
@@ -122,7 +123,7 @@ function getGitHubInstance () {
     apiUrl,
     graphqlUrl,
     token,
-    useGraphql,
+    useGraphql
   }
   if (defaultBranch) githubCreateOpts.defaultBranch = defaultBranch
   return GitHub.create(githubCreateOpts)
