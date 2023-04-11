@@ -80,6 +80,10 @@ inputs:
     description: 'configure github GraphQL URL. Default `https://api.github.com`'
     required: false
     default: ${{ github.graphql_url }}
+  github-use-graphql:
+    description: 'whether or not to use the github GraphQL API at all. Default `true`'
+    required: false
+    default: ''
   repo-url:
     description: 'configure github repository URL. Default `process.env.GITHUB_REPOSITORY`'
     required: false
